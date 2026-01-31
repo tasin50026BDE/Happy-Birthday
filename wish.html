@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Favorite Girl: Naomi</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+--light-purple: #e0aaff;
+--main-purple: #9d4edd;
+--dark-purple: #5a189a;
+--soft-bg: #f3e5f5;
+}
+
+body {
+background: linear-gradient(180deg, #f3e5f5 0%, #e1bee7 100%);
+font-family: 'Poppins', sans-serif;
+margin: 0; padding: 0;
+display: flex; flex-direction: column; align-items: center;
+color: #3c096c;
+min-height: 100vh;
+}
+
+.screen {
+width: 100%; max-width: 420px;
+min-height: 100vh; padding: 20px;
+box-sizing: border-box; display: none;
+flex-direction: column; align-items: center;
+}
+
+.active { display: flex; }
+
+/* Floating Purple Elements */
+.floating-heart {
+position: fixed; color: var(--main-purple);
+font-size: 20px; z-index: -1;
+animation: moveUp 4s linear infinite;
+opacity: 0.6;
+}
+
+@keyframes moveUp {
+0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+/* Glass Cards */
+.card {
+background: rgba(255, 255, 255, 0.85);
+backdrop-filter: blur(10px);
+border-radius: 25px; padding: 25px;
+box-shadow: 0 10px 30px rgba(90, 24, 154, 0.15);
+width: 100%; margin: 15px 0;
+border: 2px solid rgba(255, 255, 255, 0.5);
+text-align: center;
+}
+
+.pixel-art {
+width: 100%; border-radius: 15px;
+margin-bottom: 15px;
+filter: drop-shadow(0 5px 10px rgba(157, 78, 221, 0.3));
+}
+
+h1 { font-family: 'Fredoka One', cursive; color: var(--dark-purple); margin: 10px 0; }
+
+.btn {
+background: var(--main-purple); color: white;
+border: none; padding: 15px 40px; border-radius: 50px;
+font-weight: 600; cursor: pointer;
+transition: 0.3s; width: 80%;
+box-shadow: 0 8px 20px rgba(157, 78, 221, 0.4);
+margin-top: 10px;
+}
+
+.btn:hover { transform: scale(1.05); background: var(--dark-purple); }
+
+#cake { font-size: 100px; cursor: pointer; transition: 0.3s; display: block; margin: 20px 0; }
+
+.playlist-card {
+display: flex; align-items: center; gap: 15px;
+background: rgba(255, 255, 255, 0.9); padding: 15px; border-radius: 15px;
+width: 100%; text-align: left; border-left: 5px solid var(--main-purple);
+}
+</style>
+</head>
+<body>
+
+<div id="s1" class="screen active animate__animated animate__fadeIn">
+<h1 style="margin-top: 50px;">Happy Birthday, Naomi! 💜</h1>
+<div class="card">
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnY5cXp4YTR6Z3R6ZHJ4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/v6aOjy0Qo1fIA/giphy.gif" class="pixel-art">
+<p>I created a digital world just for you today, in your favorite color.</p>
+<button class="btn" onclick="go(2)">Ready for the surprise?</button>
+</div>
+</div>
+
+<div id="s2" class="screen animate__animated animate__fadeIn">
+<h1>For My Queen 👑</h1>
+<div class="card animate__animated animate__zoomIn">
+<p>To my dearest Naomi,<br><br>
+You make every day feel like a movie. Thank you for being the most incredible girl I know. Today is all about you! ✨</p>
+<div style="font-size: 50px;">✨💜✨</div>
+<button class="btn" onclick="go(3)">Next: Make a Wish</button>
+</div>
+</div>
+
+<div id="s3" class="screen animate__animated animate__fadeIn">
+<h1>It's Cake Time! 🎂</h1>
+<div class="card">
+<p>Tap the cake to cut it, Naomi!</p>
+<div id="cake" onclick="cutCake()">🎂</div>
+<h2 id="cake-msg" style="display:none; color: var(--dark-purple);">Perfect Cut! 🎉</h2>
+<button id="final-btn" class="btn" style="display:none;" onclick="go(4)">See Final Gift</button>
+</div>
+</div>
+
+<div id="s4" class="screen animate__animated animate__fadeIn">
+<h1>Your Birthday Vibes 🎵</h1>
+<div class="card">
+<div class="playlist-card">
+<div style="font-size: 30px;">🔮</div>
+<div>
+<strong>Dil Ka Jo Haal Hai</strong><br>
+<small> Naomi's Birthday Anthem </small>
+</div>
+</div>
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZleHhxZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/Lp8m7yA6Y4y20/giphy.gif" class="pixel-art" style="margin-top:20px; width: 150px;">
+<h2>I Love You! 💜</h2>
+<p>Enjoy your special day, Naomi!</p>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+function go(s) {
+document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+document.getElementById('s' + s).classList.add('active');
+window.scrollTo(0,0);
+}
+
+function cutCake() {
+// Purple and Gold confetti
+confetti({
+particleCount: 150,
+spread: 70,
+origin: { y: 0.6 },
+colors: ['#9d4edd', '#ff9100', '#ffffff', '#5a189a']
+});
+document.getElementById('cake').innerText = '🍰';
+document.getElementById('cake-msg').style.display = 'block';
+document.getElementById('final-btn').style.display = 'inline-block';
+}
+
+// Floating Purple Hearts & Stars
+setInterval(() => {
+const heart = document.createElement('div');
+heart.classList.add('floating-heart');
+const items = ['💜', '✨', '⭐', '☁️'];
+heart.innerHTML = items[Math.floor(Math.random() * items.length)];
+heart.style.left = Math.random() * 100 + 'vw';
+heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+document.body.appendChild(heart);
+setTimeout(() => heart.remove(), 4000);
+}, 600);
+</script>
+</body>
+</html>
+
